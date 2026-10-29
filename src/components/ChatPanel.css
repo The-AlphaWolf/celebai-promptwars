@@ -271,6 +271,11 @@
   border-bottom-right-radius: 2px;
 }
 
+/* The global p colour would otherwise grey out the user's own message on the gradient. */
+.chat-bubble-row.user .bubble-text .msg-p {
+  color: inherit;
+}
+
 .chat-bubble-row.model .bubble-text {
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
@@ -305,7 +310,8 @@
 }
 
 .btn-apply-plan {
-  background: #10B981;
+  /* #047857 keeps white label text above 4.5:1; the brighter #10B981 measured 2.5:1. */
+  background: #047857;
   color: #FFF;
   font-weight: 700;
   font-size: 0.75rem;
@@ -315,7 +321,7 @@
 }
 
 .btn-apply-plan:hover {
-  background: #059669;
+  background: #065F46;
 }
 
 .prompt-chips-tray {

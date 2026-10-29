@@ -1124,12 +1124,45 @@ dd {
 [data-theme="aurora-light"] :is(.progress-stat-badge, .status-pill.completed, .status-select.booked, .plan-card-header, .toast-success, .api-key-btn.connected, .text-cost) {
   color: #065F46;
 }
-[data-theme="aurora-light"] :is(.priority-high, .chat-demo-bar, .theme-wedding .badge-type) {
+[data-theme="aurora-light"] :is(.priority-high, .chat-demo-bar, .theme-wedding .badge-type, .chat-status-text.demo) {
   color: #92400E;
+}
+[data-theme="aurora-light"] :is(.theme-birthday .badge-type, .event-pill-btn.active.birthday) {
+  color: #9F1239;
+}
+[data-theme="aurora-light"] :is(.theme-community .badge-type, .event-pill-btn.active.community) {
+  color: #3730A3;
+}
+[data-theme="aurora-light"] .event-pill-btn.active.birthday {
+  border-color: #E11D48;
+}
+[data-theme="aurora-light"] .event-pill-btn.active.community {
+  border-color: #4F46E5;
 }
 [data-theme="aurora-light"] :is(.priority-critical, .status-pill.overdue) {
   color: #991B1B;
 }
 [data-theme="aurora-light"] .priority-medium {
   color: #1E40AF;
+}
+
+/* Light theme: component styles written for dark surfaces (white text, black-tinted fields). */
+[data-theme="aurora-light"] :is(.type-title, .chat-title, .chat-welcome-box h5, .msg-h4, .btn-chat-close:hover, .preset-btn:hover, .prompt-chip:hover:not(:disabled)) {
+  color: #0F172A;
+}
+[data-theme="aurora-light"] .chat-demo-bar strong {
+  color: #78350F;
+}
+[data-theme="aurora-light"] :is(.form-group input, .form-group textarea, .form-group select, select) {
+  background: #FFFFFF;
+}
+[data-theme="aurora-light"] .chat-input-bar input {
+  background: #FFFFFF;
+  color: #0F172A;
+}
+[data-theme="aurora-light"] :is(.prompt-chips-tray, .vendor-notes-box) {
+  background: #F1F5F9;
+}
+[data-theme="aurora-light"] .toast-success {
+  background: #ECFDF5;
 }
