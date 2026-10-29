@@ -1,0 +1,220 @@
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(9, 10, 18, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.navbar-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--primary-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+  box-shadow: 0 0 16px var(--primary-glow);
+  transition: transform var(--transition-bounce);
+}
+
+.navbar-brand:hover .brand-icon-box {
+  transform: rotate(12deg) scale(1.05);
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+.brand-highlight {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-badge {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+  margin-top: -2px;
+}
+
+.event-nav-pills {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+  gap: 4px;
+}
+
+.event-pill-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.event-pill-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.event-pill-btn.active.wedding {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FDE68A;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.event-pill-btn.active.birthday {
+  background: rgba(244, 63, 94, 0.18);
+  color: #FECDD3;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.event-pill-btn.active.community {
+  background: rgba(99, 102, 241, 0.18);
+  color: #C7D2FE;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.credits-badge {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: #DDD6FE;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .credits-badge {
+    display: flex;
+  }
+}
+
+.api-key-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.api-key-btn:hover {
+  border-color: var(--border-medium);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+}
+
+.api-key-btn.connected {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.08);
+  color: #A7F3D0;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dot-active {
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.dot-demo {
+  background: #F59E0B;
+  box-shadow: 0 0 6px #F59E0B;
+}
+
+.btn-export {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-export:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-export:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  /* Visually hidden, not display:none, so icon-only buttons keep their accessible names. */
+  .event-nav-pills span,
+  .export-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+}

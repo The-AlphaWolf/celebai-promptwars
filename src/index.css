@@ -1,0 +1,1135 @@
+:root {
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Universal Shadows & Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Functional Accents */
+  --success: #10B981;
+  --success-glow: rgba(16, 185, 129, 0.25);
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --info: #06B6D4;
+}
+
+/* ==========================================================================
+   THEME 1: COSMIC TWILIGHT (DEFAULT)
+   Deep obsidian, vibrant violet, neon magenta, and ethereal starlight
+   ========================================================================== */
+:root, [data-theme="cosmic"] {
+  --theme-id: "cosmic";
+  --bg-canvas: #090A14;
+  --bg-surface: #111322;
+  --bg-surface-elevated: #181B2E;
+  --bg-card: rgba(22, 25, 44, 0.72);
+  --bg-glass: rgba(255, 255, 255, 0.035);
+  --bg-glass-hover: rgba(255, 255, 255, 0.07);
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.16);
+  --border-glow: rgba(168, 85, 247, 0.35);
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #8B9AB0;
+  --text-inverse: #090A14;
+
+  --primary: #8B5CF6;
+  --primary-glow: rgba(139, 92, 246, 0.35);
+  --primary-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+
+  --wedding-gold: #F59E0B;
+  --wedding-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  --wedding-glow: rgba(245, 158, 11, 0.25);
+
+  --birthday-coral: #F43F5E;
+  --birthday-gradient: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+  --birthday-glow: rgba(244, 63, 94, 0.25);
+
+  --community-violet: #6366F1;
+  --community-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+  --community-glow: rgba(99, 102, 241, 0.25);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.7);
+
+  --ambient-radial-1: radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.14) 0%, transparent 45%);
+  --ambient-radial-2: radial-gradient(circle at 85% 25%, rgba(244, 63, 94, 0.12) 0%, transparent 45%);
+  --ambient-radial-3: radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.09) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   THEME 2: CHAMPAGNE ROYAL (LUXURY NOIR & GOLD)
+   Velvet black, molten amber gold, rich bronze, and black-tie elegance
+   ========================================================================== */
+[data-theme="royal-gold"] {
+  --theme-id: "royal-gold";
+  --bg-canvas: #0A0908;
+  --bg-surface: #14120E;
+  --bg-surface-elevated: #1E1A14;
+  --bg-card: rgba(26, 23, 18, 0.75);
+  --bg-glass: rgba(245, 158, 11, 0.035);
+  --bg-glass-hover: rgba(245, 158, 11, 0.075);
+
+  --border-subtle: rgba(245, 158, 11, 0.12);
+  --border-medium: rgba(245, 158, 11, 0.28);
+  --border-glow: rgba(245, 158, 11, 0.45);
+
+  --text-primary: #FFFDF9;
+  --text-secondary: #D4C5B0;
+  --text-muted: #A89A87;
+  --text-inverse: #0A0908;
+
+  --primary: #F59E0B;
+  --primary-glow: rgba(245, 158, 11, 0.4);
+  --primary-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 60%, #B45309 100%);
+
+  --wedding-gold: #F59E0B;
+  --wedding-gradient: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+  --wedding-glow: rgba(245, 158, 11, 0.35);
+
+  --birthday-coral: #FB7185;
+  --birthday-gradient: linear-gradient(135deg, #FB7185 0%, #E11D48 100%);
+  --birthday-glow: rgba(251, 113, 133, 0.3);
+
+  --community-violet: #C084FC;
+  --community-gradient: linear-gradient(135deg, #C084FC 0%, #9333EA 100%);
+  --community-glow: rgba(192, 132, 252, 0.3);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.8);
+
+  --ambient-radial-1: radial-gradient(circle at 20% 15%, rgba(245, 158, 11, 0.16) 0%, transparent 45%);
+  --ambient-radial-2: radial-gradient(circle at 80% 30%, rgba(217, 119, 6, 0.12) 0%, transparent 45%);
+  --ambient-radial-3: radial-gradient(circle at 50% 85%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   THEME 3: EMERALD BOTANICAL (GARDEN SANCTUARY)
+   Forest noir, fresh sage, luminous mint, and organic luxury
+   ========================================================================== */
+[data-theme="emerald"] {
+  --theme-id: "emerald";
+  --bg-canvas: #06110D;
+  --bg-surface: #0B1D16;
+  --bg-surface-elevated: #11281F;
+  --bg-card: rgba(15, 34, 26, 0.74);
+  --bg-glass: rgba(16, 185, 129, 0.035);
+  --bg-glass-hover: rgba(16, 185, 129, 0.075);
+
+  --border-subtle: rgba(16, 185, 129, 0.12);
+  --border-medium: rgba(16, 185, 129, 0.28);
+  --border-glow: rgba(16, 185, 129, 0.45);
+
+  --text-primary: #F0FDF4;
+  --text-secondary: #A7F3D0;
+  --text-muted: #7FB89E;
+  --text-inverse: #06110D;
+
+  --primary: #10B981;
+  --primary-glow: rgba(16, 185, 129, 0.38);
+  --primary-gradient: linear-gradient(135deg, #10B981 0%, #059669 60%, #047857 100%);
+
+  --wedding-gold: #F59E0B;
+  --wedding-gradient: linear-gradient(135deg, #F59E0B 0%, #10B981 100%);
+  --wedding-glow: rgba(16, 185, 129, 0.3);
+
+  --birthday-coral: #F43F5E;
+  --birthday-gradient: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+  --birthday-glow: rgba(244, 63, 94, 0.3);
+
+  --community-violet: #34D399;
+  --community-gradient: linear-gradient(135deg, #34D399 0%, #059669 100%);
+  --community-glow: rgba(52, 211, 153, 0.3);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px -4px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.75);
+
+  --ambient-radial-1: radial-gradient(circle at 18% 18%, rgba(16, 185, 129, 0.16) 0%, transparent 45%);
+  --ambient-radial-2: radial-gradient(circle at 82% 28%, rgba(5, 150, 105, 0.12) 0%, transparent 45%);
+  --ambient-radial-3: radial-gradient(circle at 50% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   THEME 4: CYBERPUNK SYNTHWAVE (TRUE NEON LASER & RETRO-GRID)
+   Deep cyber noir, neon laser magenta, electric cyan, and holographic glow
+   ========================================================================== */
+[data-theme="cyberpunk"] {
+  --theme-id: "cyberpunk";
+  --bg-canvas: #06020E;
+  --bg-surface: #0E051F;
+  --bg-surface-elevated: #160830;
+  --bg-card: rgba(18, 6, 38, 0.88);
+  --bg-glass: rgba(0, 240, 255, 0.05);
+  --bg-glass-hover: rgba(255, 0, 128, 0.14);
+
+  --border-subtle: rgba(0, 240, 255, 0.3);
+  --border-medium: rgba(255, 0, 128, 0.55);
+  --border-glow: rgba(0, 240, 255, 0.8);
+
+  --text-primary: #FFFFFF;
+  --text-secondary: #67E8F9;
+  --text-muted: #F472B6;
+  --text-inverse: #06020E;
+
+  --primary: #FF007F;
+  --primary-glow: rgba(255, 0, 127, 0.65);
+  --primary-gradient: linear-gradient(135deg, #FF007F 0%, #A855F7 45%, #00F0FF 100%);
+
+  --wedding-gold: #00F0FF;
+  --wedding-gradient: linear-gradient(135deg, #FFE600 0%, #FF007F 50%, #00F0FF 100%);
+  --wedding-glow: rgba(0, 240, 255, 0.55);
+
+  --birthday-coral: #FF007F;
+  --birthday-gradient: linear-gradient(135deg, #FF007F 0%, #00F0FF 100%);
+  --birthday-glow: rgba(255, 0, 127, 0.55);
+
+  --community-violet: #00F0FF;
+  --community-gradient: linear-gradient(135deg, #00F0FF 0%, #9333EA 100%);
+  --community-glow: rgba(0, 240, 255, 0.55);
+
+  --shadow-sm: 0 0 10px rgba(0, 240, 255, 0.25);
+  --shadow-md: 0 0 25px rgba(255, 0, 128, 0.25), 0 8px 30px rgba(0, 0, 0, 0.9);
+  --shadow-lg: 0 0 45px rgba(0, 240, 255, 0.35), 0 16px 50px rgba(0, 0, 0, 0.95);
+
+  --ambient-radial-1: radial-gradient(circle at 10% 15%, rgba(255, 0, 128, 0.28) 0%, transparent 45%);
+  --ambient-radial-2: radial-gradient(circle at 90% 25%, rgba(0, 240, 255, 0.25) 0%, transparent 45%);
+  --ambient-radial-3: radial-gradient(circle at 50% 85%, rgba(254, 231, 92, 0.16) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   THEME 5: PEARL AURORA (OPULENT IVORY - HIGH CONTRAST LIGHT MODE)
+   Pure crisp canvas, high-contrast dark typography, and royal amethyst
+   ========================================================================== */
+[data-theme="aurora-light"] {
+  --theme-id: "aurora-light";
+  --bg-canvas: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F1F5F9;
+  --bg-card: #FFFFFF;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-glass-hover: #F1F5F9;
+
+  --border-subtle: #E2E8F0;
+  --border-medium: #CBD5E1;
+  --border-glow: rgba(124, 58, 237, 0.35);
+
+  --text-primary: #0F172A;
+  --text-secondary: #334155;
+  --text-muted: #526075;
+  --text-inverse: #FFFFFF;
+
+  --primary: #7C3AED;
+  --primary-glow: rgba(124, 58, 237, 0.3);
+  --primary-gradient: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+
+  --wedding-gold: #D97706;
+  --wedding-gradient: linear-gradient(135deg, #D97706 0%, #B45309 100%);
+  --wedding-glow: rgba(217, 119, 6, 0.25);
+
+  --birthday-coral: #E11D48;
+  --birthday-gradient: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+  --birthday-glow: rgba(225, 29, 72, 0.25);
+
+  --community-violet: #4F46E5;
+  --community-gradient: linear-gradient(135deg, #4F46E5 0%, #4338CA 100%);
+  --community-glow: rgba(79, 70, 229, 0.25);
+
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 12px 28px -4px rgba(15, 23, 42, 0.12);
+
+  --ambient-radial-1: radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.06) 0%, transparent 45%);
+  --ambient-radial-2: radial-gradient(circle at 85% 25%, rgba(217, 119, 6, 0.05) 0%, transparent 45%);
+  --ambient-radial-3: radial-gradient(circle at 50% 80%, rgba(79, 70, 229, 0.04) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   GLOBAL RESET & BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-canvas);
+  background-image: var(--ambient-radial-1), var(--ambient-radial-2), var(--ambient-radial-3);
+  background-attachment: fixed;
+  transition: background-color var(--transition-normal);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Typography Helpers */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--text-primary);
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  color: var(--text-primary);
+  outline: none;
+}
+
+/* Glassmorphism Surface Utility */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.glass-panel:hover {
+  border-color: var(--border-medium);
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: var(--wedding-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-coral {
+  background: var(--birthday-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Keyframes */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-emerald {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--text-primary);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary-gradient);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 18px var(--primary-glow);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--primary-glow);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-glass-hover);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+/* App Container */
+.app-container {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 16px;
+  }
+}
+
+/* ==========================================================================
+   THEME OVERRIDES: CYBERPUNK SYNTHWAVE (NEON RETRO-FUTURE)
+   Radically distinct visual style: synthwave retro grid, electric cyan & laser pink
+   ========================================================================== */
+[data-theme="cyberpunk"] body {
+  background-color: #06020E;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+    var(--ambient-radial-1), var(--ambient-radial-2), var(--ambient-radial-3);
+  background-size: 40px 40px, 40px 40px, 100% 100%, 100% 100%, 100% 100%;
+}
+
+[data-theme="cyberpunk"] .navbar-wrapper {
+  background: rgba(10, 3, 24, 0.95);
+  border-bottom: 2px solid #00F0FF;
+  box-shadow: 0 4px 25px rgba(0, 240, 255, 0.35);
+}
+
+[data-theme="cyberpunk"] .brand-title {
+  text-shadow: 0 0 14px rgba(255, 0, 127, 0.85);
+}
+
+[data-theme="cyberpunk"] .brand-icon-box {
+  background: linear-gradient(135deg, #FF007F 0%, #00F0FF 100%);
+  box-shadow: 0 0 20px rgba(255, 0, 127, 0.8);
+}
+
+[data-theme="cyberpunk"] .glass-panel {
+  background: rgba(16, 5, 36, 0.88);
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 0 24px rgba(255, 0, 127, 0.2), inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+[data-theme="cyberpunk"] .glass-panel:hover {
+  border-color: #00F0FF;
+  box-shadow: 0 0 32px rgba(0, 240, 255, 0.4), inset 0 0 25px rgba(255, 0, 127, 0.12);
+}
+
+[data-theme="cyberpunk"] .event-header-card {
+  border: 2px solid #FF007F;
+  box-shadow: 0 0 35px rgba(255, 0, 127, 0.35), inset 0 0 25px rgba(0, 240, 255, 0.08);
+}
+
+[data-theme="cyberpunk"] .event-title {
+  color: #FFFFFF;
+  text-shadow: 0 0 14px rgba(0, 240, 255, 0.7);
+}
+
+[data-theme="cyberpunk"] .badge-type {
+  background: rgba(255, 0, 127, 0.25);
+  color: #FF007F;
+  border: 1px solid #FF007F;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.6);
+  font-weight: 800;
+}
+
+[data-theme="cyberpunk"] .badge-theme {
+  background: rgba(0, 240, 255, 0.18);
+  color: #00F0FF;
+  border: 1px solid #00F0FF;
+  box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+  font-weight: 700;
+}
+
+[data-theme="cyberpunk"] .tab-btn {
+  color: #67E8F9;
+}
+
+[data-theme="cyberpunk"] .tab-btn:hover {
+  color: #FFFFFF;
+  background: rgba(0, 240, 255, 0.12);
+  text-shadow: 0 0 8px #00F0FF;
+}
+
+[data-theme="cyberpunk"] .tab-btn.active {
+  background: linear-gradient(135deg, rgba(255, 0, 127, 0.35) 0%, rgba(0, 240, 255, 0.35) 100%);
+  border: 1px solid #00F0FF;
+  box-shadow: 0 0 18px rgba(0, 240, 255, 0.6), inset 0 0 10px rgba(255, 0, 127, 0.3);
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #00F0FF;
+}
+
+[data-theme="cyberpunk"] .tab-badge {
+  background: rgba(0, 240, 255, 0.15);
+  color: #00F0FF;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+[data-theme="cyberpunk"] .tab-btn.active .tab-badge {
+  background: #00F0FF;
+  color: #06020E;
+  font-weight: 800;
+}
+
+[data-theme="cyberpunk"] .stat-value {
+  color: #00F0FF;
+  text-shadow: 0 0 14px rgba(0, 240, 255, 0.65);
+}
+
+[data-theme="cyberpunk"] .panel-title-group .panel-heading,
+[data-theme="cyberpunk"] .node-title,
+[data-theme="cyberpunk"] .vendor-name,
+[data-theme="cyberpunk"] .idea-title {
+  color: #FFFFFF;
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
+}
+
+[data-theme="cyberpunk"] .btn-primary {
+  background: linear-gradient(135deg, #FF007F 0%, #00F0FF 100%);
+  border: 1px solid #00F0FF;
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.7);
+  color: #FFFFFF;
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+[data-theme="cyberpunk"] .btn-header-action {
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  color: #67E8F9;
+  background: rgba(0, 240, 255, 0.08);
+}
+
+[data-theme="cyberpunk"] .btn-header-action:hover {
+  background: rgba(255, 0, 127, 0.2);
+  border-color: #FF007F;
+  color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+}
+
+[data-theme="cyberpunk"] .floating-ai-trigger {
+  background: linear-gradient(135deg, #FF007F 0%, #00F0FF 100%);
+  border: 1px solid #00F0FF;
+  box-shadow: 0 0 30px rgba(255, 0, 127, 0.7);
+}
+
+/* ==========================================================================
+   THEME OVERRIDES: PEARL AURORA (HIGH-CONTRAST LIGHT MODE)
+   Uncompromising WCAG AAA readability, rich dark typography, crisp card borders
+   ========================================================================== */
+[data-theme="aurora-light"] body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .glass-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
+}
+
+[data-theme="aurora-light"] .glass-panel:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 25px -4px rgba(15, 23, 42, 0.12);
+}
+
+[data-theme="aurora-light"] .navbar-wrapper {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="aurora-light"] .brand-title {
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .brand-badge {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .event-pill-btn {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .event-pill-btn:hover {
+  background: #F1F5F9;
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .event-pill-btn.active {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="aurora-light"] .event-pill-btn.active.wedding {
+  border-color: #D97706;
+  color: #B45309;
+}
+
+[data-theme="aurora-light"] .credits-badge,
+[data-theme="aurora-light"] .api-key-btn,
+[data-theme="aurora-light"] .theme-trigger-btn,
+[data-theme="aurora-light"] .btn-export {
+  background: #F1F5F9;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .btn-export:hover:not(:disabled) {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .theme-active-name {
+  color: #0F172A;
+}
+
+/* Event Header */
+[data-theme="aurora-light"] .event-header-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="aurora-light"] .event-title {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+[data-theme="aurora-light"] .event-summary {
+  color: #334155 !important;
+  font-weight: 500;
+}
+
+[data-theme="aurora-light"] .badge-type {
+  background: #FEF3C7;
+  color: #92400E;
+  border: 1px solid #FCD34D;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .badge-theme {
+  background: #F3E8FF;
+  color: #6B21A8;
+  border: 1px solid #D8B4FE;
+  font-weight: 600;
+}
+
+[data-theme="aurora-light"] .btn-header-action {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #0F172A;
+}
+
+[data-theme="aurora-light"] .btn-header-action:hover {
+  background: #F1F5F9;
+}
+
+[data-theme="aurora-light"] .meta-pill {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+}
+
+[data-theme="aurora-light"] .meta-label {
+  color: #64748B !important;
+  font-weight: 600;
+}
+
+[data-theme="aurora-light"] .meta-value {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+/* Tabs */
+[data-theme="aurora-light"] .tabs-container {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="aurora-light"] .tab-btn {
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .tab-btn:hover {
+  color: #0F172A;
+  background: #F1F5F9;
+}
+
+[data-theme="aurora-light"] .tab-btn.active {
+  background: #7C3AED;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.3);
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .tab-badge {
+  background: #F1F5F9;
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .tab-btn.active .tab-badge {
+  background: #FFFFFF;
+  color: #7C3AED;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .btn-chat-toggle {
+  background: #F3E8FF;
+  border: 1px solid #D8B4FE;
+  color: #6B21A8;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .btn-chat-toggle:hover {
+  background: #E9D5FF;
+}
+
+/* Budget Cards & Content */
+[data-theme="aurora-light"] .stat-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 12px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="aurora-light"] .stat-label {
+  color: #64748B !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .stat-value {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+[data-theme="aurora-light"] .stat-subtitle {
+  color: #475569 !important;
+}
+
+[data-theme="aurora-light"] .panel-title-group .panel-heading {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+[data-theme="aurora-light"] .panel-subtitle {
+  color: #64748B !important;
+}
+
+[data-theme="aurora-light"] .donut-amount {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+[data-theme="aurora-light"] .donut-hole {
+  background: #F8FAFC !important;
+}
+
+[data-theme="aurora-light"] .legend-label {
+  color: #0F172A !important;
+}
+
+[data-theme="aurora-light"] .cat-name {
+  color: #0F172A !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .pct-badge {
+  background: #F1F5F9;
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .amount-input-box {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #64748B;
+}
+
+[data-theme="aurora-light"] .amount-input-box input {
+  color: #0F172A !important;
+}
+
+[data-theme="aurora-light"] .budget-table th {
+  color: #475569 !important;
+  background: #F8FAFC !important;
+  border-bottom: 2px solid #E2E8F0 !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .budget-table td {
+  color: #0F172A !important;
+  border-bottom: 1px solid #F1F5F9 !important;
+}
+
+[data-theme="aurora-light"] .budget-table tr:hover td {
+  background: #F8FAFC !important;
+}
+
+[data-theme="aurora-light"] .budget-notes {
+  color: #64748B !important;
+}
+
+[data-theme="aurora-light"] .spent-val {
+  color: #475569 !important;
+}
+
+/* Timeline */
+[data-theme="aurora-light"] .milestone-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="aurora-light"] .node-title {
+  color: #0F172A !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .node-description {
+  color: #334155 !important;
+}
+
+[data-theme="aurora-light"] .filter-btn {
+  background: #F8FAFC;
+  border: 1px solid #CBD5E1;
+  color: #475569;
+}
+
+[data-theme="aurora-light"] .filter-btn.active {
+  background: #7C3AED;
+  border-color: #7C3AED;
+  color: #FFFFFF;
+}
+
+[data-theme="aurora-light"] .timeline-phase-badge,
+[data-theme="aurora-light"] .phase-badge {
+  background: #F1F5F9 !important;
+  color: #475569 !important;
+  border: 1px solid #CBD5E1 !important;
+}
+
+/* Vendors */
+[data-theme="aurora-light"] .vendor-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="aurora-light"] .vendor-name {
+  color: #0F172A !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .vendor-notes {
+  color: #475569 !important;
+}
+
+[data-theme="aurora-light"] .vendor-stat-num {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+/* Creative Ideas */
+[data-theme="aurora-light"] .idea-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="aurora-light"] .idea-title {
+  color: #0F172A !important;
+  font-weight: 700;
+}
+
+[data-theme="aurora-light"] .idea-description {
+  color: #334155 !important;
+}
+
+[data-theme="aurora-light"] .ideas-meta .panel-heading {
+  color: #0F172A !important;
+  font-weight: 800;
+}
+
+/* Theme Selector Dropdown */
+[data-theme="aurora-light"] .theme-menu {
+  background: #FFFFFF !important;
+  border: 1px solid #CBD5E1 !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="aurora-light"] .theme-item:hover {
+  background: #F1F5F9 !important;
+}
+
+[data-theme="aurora-light"] .theme-name {
+  color: #0F172A !important;
+}
+
+[data-theme="aurora-light"] .theme-desc {
+  color: #64748B !important;
+}
+
+
+/* ==========================================================================
+   ACCESSIBILITY
+   ========================================================================== */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 2000;
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: var(--text-inverse);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.type-card:focus-within {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+ul.ideas-grid,
+ul.vendors-grid,
+ul.donut-legend,
+ul.theme-list,
+ol.timeline-nodes-list,
+.insights-list {
+  list-style: none;
+}
+
+fieldset.form-group {
+  border: none;
+}
+
+dd {
+  margin: 0;
+}
+
+.panel-heading {
+  font-size: 1.05rem;
+}
+
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.status-pill.overdue {
+  background: rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+[data-theme="aurora-light"] .status-pill.overdue {
+  color: #B91C1C;
+}
+
+/* Planner insights (EventHeader) */
+.insights-panel {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.insights-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.insights-list {
+  display: grid;
+  gap: 6px;
+}
+
+.insight {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-primary);
+}
+
+.insight svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.insight-warning svg { color: #F59E0B; }
+.insight-success svg { color: #10B981; }
+.insight-info svg { color: #60A5FA; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Native progress bars (timeline and vendor booking progress) */
+.native-progress {
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  background: var(--border-subtle);
+}
+
+.native-progress::-webkit-progress-bar {
+  background: var(--border-subtle);
+}
+
+.native-progress::-webkit-progress-value {
+  background: var(--primary-gradient, var(--primary));
+  border-radius: var(--radius-pill);
+}
+
+.native-progress::-moz-progress-bar {
+  background: var(--primary-gradient, var(--primary));
+  border-radius: var(--radius-pill);
+}
+
+/* Light theme: the pastel accent text used on dark themes drops to ~1.2:1 on light tints. */
+[data-theme="aurora-light"] :is(.badge-idea-cat, .badge-category, .phase-badge, .text-contact, .status-pill.in-progress, .msg-num-badge, .chat-bubble-row.model .bubble-avatar) {
+  color: #5B21B6;
+}
+[data-theme="aurora-light"] :is(.progress-stat-badge, .status-pill.completed, .status-select.booked, .plan-card-header, .toast-success, .api-key-btn.connected, .text-cost) {
+  color: #065F46;
+}
+[data-theme="aurora-light"] :is(.priority-high, .chat-demo-bar, .theme-wedding .badge-type) {
+  color: #92400E;
+}
+[data-theme="aurora-light"] :is(.priority-critical, .status-pill.overdue) {
+  color: #991B1B;
+}
+[data-theme="aurora-light"] .priority-medium {
+  color: #1E40AF;
+}

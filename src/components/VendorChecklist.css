@@ -1,0 +1,229 @@
+.vendors-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.vendors-control-panel {
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.vendor-stats-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vendor-stat-num {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  display: block;
+}
+
+.vendor-stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.vendor-progress-container {
+  width: 140px;
+}
+
+.vendor-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.vendor-progress-fill {
+  height: 100%;
+  background: #10B981;
+  border-radius: var(--radius-pill);
+  transition: width var(--transition-normal);
+}
+
+.vendors-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.category-select-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.filter-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.cat-filter-select {
+  padding: 6px 12px 6px 30px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+}
+
+.vendors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 18px;
+}
+
+.vendor-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.vendor-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-medium);
+}
+
+.card-booked {
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.vendor-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.vendor-meta-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge-category {
+  background: rgba(139, 92, 246, 0.15);
+  color: #DDD6FE;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+}
+
+.badge-priority {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.priority-critical {
+  background: rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+}
+
+.priority-high {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FDE68A;
+}
+
+.priority-medium {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93C5FD;
+}
+
+.priority-nice-to-have {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+}
+
+.vendor-name {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.vendor-info-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.vendor-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-label {
+  color: var(--text-muted);
+}
+
+.info-value {
+  font-weight: 600;
+}
+
+.text-cost {
+  font-family: var(--font-mono);
+  color: #34D399;
+}
+
+.text-contact {
+  color: #C4B5FD;
+}
+
+.vendor-notes-box {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.vendor-card-footer {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.status-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.status-select {
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+}
+
+.status-select.booked {
+  background: rgba(16, 185, 129, 0.2);
+  color: #A7F3D0;
+  border-color: #10B981;
+}

@@ -1,0 +1,187 @@
+.event-header-card {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding: 28px 32px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.theme-wedding {
+  border-left: 4px solid var(--wedding-gold);
+}
+
+.theme-birthday {
+  border-left: 4px solid var(--birthday-coral);
+}
+
+.theme-community {
+  border-left: 4px solid var(--community-violet);
+}
+
+.header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.header-badges {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.badge-type {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFF;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.theme-wedding .badge-type {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FDE68A;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.theme-birthday .badge-type {
+  background: rgba(244, 63, 94, 0.15);
+  color: #FECDD3;
+  border: 1px solid rgba(244, 63, 94, 0.35);
+}
+
+.theme-community .badge-type {
+  background: rgba(99, 102, 241, 0.15);
+  color: #C7D2FE;
+  border: 1px solid rgba(99, 102, 241, 0.35);
+}
+
+.badge-theme {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-header-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn-header-action:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-medium);
+  transform: translateY(-1px);
+}
+
+.btn-header-new {
+  padding: 8px 18px;
+  font-size: 0.85rem;
+}
+
+.header-main-content {
+  margin-bottom: 24px;
+}
+
+.event-title {
+  font-size: 2.15rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.event-summary {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 900px;
+  line-height: 1.6;
+}
+
+.header-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.meta-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+.meta-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.theme-wedding .meta-icon {
+  color: var(--wedding-gold);
+}
+
+.theme-birthday .meta-icon {
+  color: var(--birthday-coral);
+}
+
+.theme-community .meta-icon {
+  color: var(--community-violet);
+}
+
+.meta-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.meta-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .event-header-card {
+    padding: 20px;
+  }
+  .event-title {
+    font-size: 1.6rem;
+  }
+  .header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

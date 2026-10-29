@@ -1,0 +1,182 @@
+.celebai-app {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.notification-toast {
+  position: fixed;
+  top: 70px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 1000;
+  animation: slideDown 200ms ease-out;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.toast-success {
+  background: #065F46;
+  color: #A7F3D0;
+  border: 1px solid #10B981;
+}
+
+.toast-info {
+  background: #312E81;
+  color: #C7D2FE;
+  border: 1px solid #6366F1;
+}
+
+.toast-danger {
+  background: #7F1D1D;
+  color: #FECDD3;
+  border: 1px solid #EF4444;
+}
+
+.tabs-container {
+  margin-bottom: 24px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+  color: var(--text-primary);
+  background: var(--bg-glass-hover);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tab-badge {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-glass);
+  color: var(--text-muted);
+}
+
+.tab-btn.active .tab-badge {
+  background: var(--primary);
+  color: var(--text-inverse);
+}
+
+.btn-chat-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  color: #DDD6FE;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.btn-chat-toggle:hover {
+  background: rgba(139, 92, 246, 0.25);
+  transform: translateY(-1px);
+}
+
+.copilot-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.tab-view-content {
+  margin-bottom: 40px;
+}
+
+.floating-ai-trigger {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: var(--radius-pill);
+  background: var(--primary-gradient);
+  color: #FFF;
+  box-shadow: 0 10px 30px var(--primary-glow);
+  font-weight: 700;
+  font-size: 0.9rem;
+  z-index: 80;
+  transition: transform var(--transition-bounce), box-shadow var(--transition-fast);
+}
+
+.floating-ai-trigger:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 14px 40px var(--primary-glow);
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-15px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .tabs-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tabs-nav {
+    overflow-x: auto;
+  }
+  .float-label {
+    display: none;
+  }
+  .floating-ai-trigger {
+    padding: 14px;
+    border-radius: 50%;
+  }
+}
+
+/* Keep the dashboard usable beside the docked assistant on wide screens. */
+@media (min-width: 1100px) {
+  .celebai-app.chat-open .app-container {
+    padding-right: 488px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .celebai-app.chat-open .notification-toast {
+    right: 488px;
+  }
+}

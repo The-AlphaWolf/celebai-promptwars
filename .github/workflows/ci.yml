@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test:coverage
+      - run: npm audit --omit=dev --audit-level=high
+      - name: Docker image builds
+        run: docker build -t celebai:ci .
+
+      - run: npm run build
+        env:
+          # Pages has no API server; the build talks to the in-browser engine only.
+          VITE_STATIC_DEMO: 'true'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: ./dist
+
+  # Static demo on GitHub Pages. With no API server there, the app uses its
+  # in-browser planning engine (the full stack runs via the Dockerfile).
+  deploy-pages:
+    needs: verify
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
