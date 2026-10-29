@@ -20,6 +20,25 @@ import { LIMITS } from './constants.js';
 
 const usd = (value) => `$${Math.round(value).toLocaleString('en-US')}`;
 
+/** Practical ways to save in each budget category, keyed by the profile's budget key. */
+const SAVING_TIPS = {
+  venue: 'an off-peak day or time, a shorter hire window, or a venue that already includes tables and chairs',
+  catering: 'fewer courses or a family-style service, a shorter open bar, or off-peak timing',
+  photo: 'fewer hours of coverage, or dropping the second shooter or video',
+  decor: 'seasonal or reused pieces, rented rather than bought items, and decorating only the focal points',
+  music: 'a shorter live set with a playlist for the rest, or one performer instead of a band',
+  attire: 'rented or pre-owned outfits and fewer paid styling sessions',
+  stationery: 'digital invitations and printing only what guests need on the day',
+  cake: 'a smaller display cake with a sheet cake or dessert table for serving',
+  stage: 'a smaller stage, or sharing the sound and power rig with another booking',
+  activities: 'volunteer-led sessions or fewer paid workshops',
+  marketing: 'social media and community noticeboards instead of paid print',
+  operations: 'shared waste stations and a volunteer cleanup crew',
+  weather: 'covering only essential areas and planning an indoor fallback nearby',
+  security: 'matching paid staff to peak hours and adding briefed volunteer stewards',
+};
+const GENERIC_TIP = 'two more quotes to compare, dropping optional extras, or off-peak booking';
+
 /** Parses "20000", "20,000", "$20k", "1.5m". */
 export function parseAmount(raw) {
   const match = /^\$?\s*([\d,.]+)\s*(k|m)?$/i.exec(raw.trim());
@@ -94,7 +113,7 @@ export function respondOffline(plan, message, today = new Date()) {
     }
     const { plan: updated, saving } = trimCategory(plan, target.id, percent);
     return {
-      text: `Trimming **${target.category}** by ${percent}% saves ${usd(saving)}, which moves into the contingency reserve. Ways to get there: fewer courses or a family-style service, a shorter open bar, or off-peak timing.`,
+      text: `Trimming **${target.category}** by ${percent}% saves ${usd(saving)}, which moves into the contingency reserve. Ways to get there: ${SAVING_TIPS[target.key] ?? GENERIC_TIP}.`,
       plan: updated,
     };
   }

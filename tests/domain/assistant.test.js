@@ -27,6 +27,16 @@ describe('respondOffline', () => {
     expect(result.text).toMatch(/Catering & Bar/);
     expect(byKey(result.plan, 'catering').allocated).toBeLessThan(byKey(plan, 'catering').allocated);
     expect(summarizeBudget(result.plan).allocated).toBe(30000);
+    expect(result.text).toMatch(/family-style service/);
+  });
+
+  it('gives saving tips that match the trimmed category', () => {
+    const decor = respondOffline(plan, 'trim decor by 20%', TODAY).text;
+    expect(decor).toMatch(/Florals & Decor/);
+    expect(decor).toMatch(/rented rather than bought/);
+    expect(decor).not.toMatch(/open bar/);
+    const custom = { ...plan, budgetItems: [...plan.budgetItems, { id: 'x1', key: 'custom', category: 'Fireworks', allocated: 0, spent: 0, color: '#FFFFFF' }] };
+    expect(respondOffline(custom, 'cut fireworks by 10%', TODAY).text).toMatch(/two more quotes/);
   });
 
   it('cuts the whole budget when no category is named', () => {
