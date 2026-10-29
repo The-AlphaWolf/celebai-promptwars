@@ -30,6 +30,15 @@ describe('respondOffline', () => {
     expect(result.text).toMatch(/family-style service/);
   });
 
+  it('says when a trim was rounded to $50 steps', () => {
+    const withCatering = (allocated) => ({ ...plan, budgetItems: plan.budgetItems.map((item) => (item.key === 'catering' ? { ...item, allocated } : item)) });
+    const rounded = respondOffline(withCatering(1550), 'reduce catering by 10%', TODAY).text;
+    expect(rounded).toMatch(/saves \$150 \(10% is \$155, rounded to the plan's \$50 steps\)/);
+    const exact = respondOffline(withCatering(2000), 'reduce catering by 10%', TODAY).text;
+    expect(exact).toMatch(/saves \$200,/);
+    expect(exact).not.toMatch(/rounded/);
+  });
+
   it('finds categories by everyday words on every event type', () => {
     const birthday = generatePlan({ eventType: 'birthday', guestCount: 35, budget: 3200, date: '2026-12-19' }, TODAY);
     const djCut = respondOffline(birthday, 'Cut the DJ budget by 25%', TODAY);

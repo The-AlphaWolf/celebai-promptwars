@@ -133,8 +133,11 @@ export function respondOffline(plan, message, today = new Date()) {
       };
     }
     const { plan: updated, saving } = trimCategory(plan, target.id, percent);
+    // trimCategory rounds to $50 steps; say so when that differs from the exact percentage.
+    const exact = (target.allocated * percent) / 100;
+    const rounding = Math.round(exact) === saving ? '' : ` (${percent}% is ${usd(exact)}, rounded to the plan's $50 steps)`;
     return {
-      text: `Trimming **${target.category}** by ${percent}% saves ${usd(saving)}, which moves into the contingency reserve. Ways to get there: ${SAVING_TIPS[target.key] ?? GENERIC_TIP}.`,
+      text: `Trimming **${target.category}** by ${percent}% saves ${usd(saving)}${rounding}, which moves into the contingency reserve. Ways to get there: ${SAVING_TIPS[target.key] ?? GENERIC_TIP}.`,
       plan: updated,
     };
   }
