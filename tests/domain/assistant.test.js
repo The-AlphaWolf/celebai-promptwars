@@ -30,6 +30,19 @@ describe('respondOffline', () => {
     expect(result.text).toMatch(/family-style service/);
   });
 
+  it('finds categories by everyday words on every event type', () => {
+    const birthday = generatePlan({ eventType: 'birthday', guestCount: 35, budget: 3200, date: '2026-12-19' }, TODAY);
+    const djCut = respondOffline(birthday, 'Cut the DJ budget by 25%', TODAY);
+    expect(djCut.text).toMatch(/DJ, Lighting & Games/);
+    expect(djCut.plan.budget).toBe(3200);
+    const cateringCut = respondOffline(birthday, 'Reduce catering by 10%', TODAY);
+    expect(cateringCut.text).toMatch(/Food & Drinks/);
+    expect(summarizeBudget(cateringCut.plan).allocated).toBe(3200);
+    const community = generatePlan({ eventType: 'community', guestCount: 300, budget: 15000, date: '2027-03-01' }, TODAY);
+    expect(respondOffline(community, 'trim the sound by 10%', TODAY).text).toMatch(/Stage, Sound & Power/);
+    expect(respondOffline(community, 'reduce catering by 10%', TODAY).text).toMatch(/Food & Water Stations/);
+  });
+
   it('gives saving tips that match the trimmed category', () => {
     const decor = respondOffline(plan, 'trim decor by 20%', TODAY).text;
     expect(decor).toMatch(/Florals & Decor/);

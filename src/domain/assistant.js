@@ -49,9 +49,30 @@ export function parseAmount(raw) {
   return Math.round(base * multiplier);
 }
 
-/** Finds the budget line a message refers to, by category words. */
+/** Everyday words for each budget key, so "catering" finds "Food & Drinks" and "DJ" finds "DJ, Lighting & Games". */
+const CATEGORY_WORDS = {
+  catering: ['catering', 'caterer', 'food', 'drink', 'drinks', 'bar', 'menu'],
+  music: ['music', 'dj', 'band', 'entertainment', 'lighting', 'games'],
+  venue: ['venue', 'site', 'hall', 'rental', 'rentals', 'permit', 'permits', 'insurance'],
+  decor: ['decor', 'decoration', 'decorations', 'flowers', 'florals', 'favors'],
+  photo: ['photo', 'photos', 'photography', 'photographer', 'video'],
+  cake: ['cake', 'dessert', 'desserts'],
+  attire: ['attire', 'dress', 'outfit', 'outfits', 'beauty', 'makeup'],
+  stationery: ['invitations', 'invites', 'stationery'],
+  stage: ['stage', 'sound', 'audio'],
+  activities: ['activities', 'workshop', 'workshops'],
+  marketing: ['promotion', 'marketing', 'signage', 'posters'],
+  operations: ['waste', 'toilets', 'cleanup', 'cleaning'],
+  weather: ['tent', 'tents', 'weather', 'generator'],
+  security: ['security', 'stewards', 'logistics'],
+};
+
+/** Finds the budget line a message refers to: everyday words for its key first, then words in its name. */
 function findCategory(plan, message) {
-  const words = message.toLowerCase().match(/[a-z]{4,}/g) || [];
+  const tokens = message.toLowerCase().match(/[a-z]+/g) || [];
+  const byKey = plan.budgetItems.find((item) => CATEGORY_WORDS[item.key]?.some((word) => tokens.includes(word)));
+  if (byKey) return byKey;
+  const words = tokens.filter((word) => word.length >= 4);
   return plan.budgetItems.find((item) => {
     const category = item.category.toLowerCase();
     return words.some((word) => category.includes(word));
