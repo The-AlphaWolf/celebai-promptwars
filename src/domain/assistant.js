@@ -14,11 +14,11 @@ import {
   reschedule,
   pickIdeas,
   findContingency,
+  formatUsd as usd,
 } from './planner.js';
 import { parseIsoDate } from './planSchema.js';
 import { LIMITS } from './constants.js';
 
-const usd = (value) => `$${Math.round(value).toLocaleString('en-US')}`;
 
 /** Practical ways to save in each budget category, keyed by the profile's budget key. */
 const SAVING_TIPS = {

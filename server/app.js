@@ -101,6 +101,18 @@ export function createApp({ ai = null, staticDir, trustProxy = false, rateLimitP
     }),
   );
 
+  // Identical intakes on the same day build identical prompts, so reuse Gemini's wording instead of paying
+  // for a second call. Chat is not cached: asking again ("more ideas") should get a fresh answer.
+  // ponytail: per-instance FIFO of 100 entries; move to a shared store if several instances need to share it.
+  const planCache = new Map();
+  const cachedEnrichment = async (prompt) => {
+    if (planCache.has(prompt)) return planCache.get(prompt);
+    const enrichment = await ai.generateJson({ system: PLAN_SYSTEM_INSTRUCTION, prompt, schema: PLAN_RESPONSE_SCHEMA });
+    if (planCache.size >= 100) planCache.delete(planCache.keys().next().value);
+    planCache.set(prompt, enrichment);
+    return enrichment;
+  };
+
   const api = express.Router();
   api.use(rateLimit({ windowMs: 60_000, limit: rateLimitPerMinute, standardHeaders: 'draft-8', legacyHeaders: false }));
   api.use(express.json({ limit: '64kb' }));
@@ -118,11 +130,7 @@ export function createApp({ ai = null, staticDir, trustProxy = false, rateLimitP
     if (!ai) return res.json({ plan, source: 'engine' });
 
     try {
-      const enrichment = await ai.generateJson({
-        system: PLAN_SYSTEM_INSTRUCTION,
-        prompt: buildPlanPrompt(intake, plan),
-        schema: PLAN_RESPONSE_SCHEMA,
-      });
+      const enrichment = await cachedEnrichment(buildPlanPrompt(intake, plan));
       return res.json({ plan: mergePlanEnrichment(plan, enrichment), source: 'gemini' });
     } catch (error) {
       logAiFailure('plan', error);

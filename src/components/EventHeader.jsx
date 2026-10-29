@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Calendar, Users, MapPin, DollarSign, Sparkles, Wand2, PlusCircle, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
-import { analyzePlan, getProfile } from '../domain/planner';
+import { analyzePlan, getProfile, formatUsd } from '../domain/planner';
 import './EventHeader.css';
 
 const TYPE_BADGE = { wedding: '💍 Wedding', birthday: '🎂 Birthday', community: '🎪 Community event' };
@@ -68,7 +68,7 @@ export default function EventHeader({ plan, today, onOpenIntake, onOpenChat, isB
           <DollarSign size={16} className="meta-icon" aria-hidden="true" />
           <div className="meta-text">
             <span className="meta-label">Budget</span>
-            <span className="meta-value">${plan.budget.toLocaleString('en-US')} (${perGuest.toLocaleString('en-US')}/guest)</span>
+            <span className="meta-value">{formatUsd(plan.budget)} ({formatUsd(perGuest)}/guest)</span>
           </div>
         </div>
         <div className="meta-pill">

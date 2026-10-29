@@ -110,6 +110,19 @@ describe('API with a (fake) Gemini client', () => {
     expect(prompt).toMatch(/<user_input>[\s\S]*Server Party[\s\S]*<\/user_input>/);
   });
 
+  it('reuses Gemini wording for a repeated intake instead of calling it again', async () => {
+    const ai = { model: 'fake', generateJson: vi.fn().mockResolvedValue({ summary: 'Cached once.' }) };
+    const api = await start({ ai });
+    const first = await (await api.request('/api/plan', { method: 'POST', body: intake })).json();
+    const second = await (await api.request('/api/plan', { method: 'POST', body: intake })).json();
+    await api.request('/api/plan', { method: 'POST', body: { ...intake, guestCount: intake.guestCount + 10 } });
+    await api.close();
+
+    expect(second).toEqual(first);
+    expect(second.plan.summary).toBe('Cached once.');
+    expect(ai.generateJson).toHaveBeenCalledTimes(2); // the changed intake is a new prompt
+  });
+
   it('validates and re-balances a model-proposed plan update', async () => {
     const ai = {
       model: 'fake',

@@ -1,5 +1,5 @@
 import { jsPDF } from 'jspdf';
-import { summarizeBudget } from '../domain/planner';
+import { summarizeBudget, formatUsd } from '../domain/planner';
 
 export function exportPlanToPdf(plan) {
   if (!plan) return;
@@ -60,7 +60,7 @@ export function exportPlanToPdf(plan) {
   const metaItems = [
     `Date: ${plan.date || 'TBD'}`,
     `Guests: ${plan.guestCount || 'N/A'} attendees`,
-    `Budget: $${(plan.budget || 0).toLocaleString()} USD`,
+    `Budget: ${formatUsd(plan.budget)} USD`,
     `Location: ${plan.location || 'TBD'}`
   ];
   doc.text(metaItems.join('   |   '), margin, y);
@@ -121,8 +121,8 @@ export function exportPlanToPdf(plan) {
       checkPageBreak(18);
       doc.text(b.category, margin, y);
       doc.text(`${b.percentage}%`, margin + 200, y);
-      doc.text(`$${(b.allocated || 0).toLocaleString()}`, margin + 300, y);
-      doc.text(`$${(b.spent || 0).toLocaleString()}`, margin + 400, y);
+      doc.text(formatUsd(b.allocated), margin + 300, y);
+      doc.text(formatUsd(b.spent), margin + 400, y);
       y += 14;
     });
     y += 14;
@@ -172,7 +172,7 @@ export function exportPlanToPdf(plan) {
       doc.text(`${v.category}: ${v.name}`, margin, y);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(110, 110, 130);
-      doc.text(`Status: ${v.status} | Priority: ${v.priority} | Est: $${(v.cost || 0).toLocaleString()}`, margin + 220, y);
+      doc.text(`Status: ${v.status} | Priority: ${v.priority} | Est: ${formatUsd(v.cost)}`, margin + 220, y);
       y += 12;
 
       if (v.notes) {

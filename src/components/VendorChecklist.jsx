@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Plus, Trash2, Filter } from 'lucide-react';
 import Modal from './Modal';
+import { formatUsd as usd } from '../domain/planner';
 import { sanitizeText, clampNumber } from '../domain/planSchema';
 import { VENDOR_STATUSES, VENDOR_PRIORITIES, LIMITS } from '../domain/constants';
 import './Modal.css';
 import './VendorChecklist.css';
 
-const usd = (value) => `$${Math.round(value || 0).toLocaleString('en-US')}`;
 const EMPTY_VENDOR = { category: '', name: '', contact: '', cost: '', priority: 'High', notes: '' };
 
 function AddVendorDialog({ onAdd, onClose }) {

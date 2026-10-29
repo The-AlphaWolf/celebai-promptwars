@@ -22,7 +22,8 @@ const floorToStep = (value, budget) => {
   const step = budget >= 5000 ? 50 : 10;
   return Math.floor(value / step) * step;
 };
-const formatUsd = (value) => `$${Math.round(value).toLocaleString('en-US')}`;
+/** Whole-dollar US currency, e.g. $1,550. Shared by the engine, assistant, UI and PDF export. */
+export const formatUsd = (value) => `$${Math.round(value || 0).toLocaleString('en-US')}`;
 
 // ---------- dates ----------
 

@@ -124,9 +124,9 @@ CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) runs lint, coverage,
 
 ## Efficiency
 
-- The production entry bundle went from 818 kB (252 kB gzip) to about 300 kB (94 kB gzip). jsPDF (and its optional html2canvas/DOMPurify chunks), confetti, the chat panel and the intake dialog are loaded on demand.
+- The production entry bundle went from 818 kB (252 kB gzip) to about 285 kB (91 kB gzip). Only the Budget tab ships in it; the Timeline, Vendors and Ideas tabs, jsPDF (and its optional html2canvas/DOMPurify chunks), confetti, the chat panel and the intake dialog are loaded on demand.
 - Plan maths is O(n) over a few dozen items and memoized in the UI.
-- Prompts send a compact plan (ids, names, numbers) instead of the full plan. Each AI call has one model, one request and a 20 s timeout, then falls back to the engine. There are no retry loops.
+- Prompts send a compact plan (ids, names, numbers) instead of the full plan. Each AI call has one model, one request and a 20 s timeout, then falls back to the engine. There are no retry loops. Repeated plan requests with the same intake reuse the cached Gemini wording (100-entry in-memory cache); chat is not cached so asking again gets a fresh answer.
 
 ## Project structure
 

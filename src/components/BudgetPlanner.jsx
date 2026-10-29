@@ -1,13 +1,12 @@
 import { useMemo, useState } from 'react';
 import { DollarSign, Plus, Trash2, PieChart, TrendingUp, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import Modal from './Modal';
-import { summarizeBudget } from '../domain/planner';
+import { summarizeBudget, formatUsd as usd } from '../domain/planner';
 import { sanitizeText, clampNumber } from '../domain/planSchema';
 import { PALETTE, LIMITS } from '../domain/constants';
 import './Modal.css';
 import './BudgetPlanner.css';
 
-const usd = (value) => `$${Math.round(value).toLocaleString('en-US')}`;
 
 function donutGradient(items, allocated) {
   if (allocated <= 0) return 'rgba(255, 255, 255, 0.1)';

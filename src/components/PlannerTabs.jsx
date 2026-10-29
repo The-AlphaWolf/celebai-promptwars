@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { DollarSign, Calendar, Users, Sparkles } from 'lucide-react';
+import { formatUsd } from '../domain/planner';
 
 const TABS = [
-  { id: 'budget', label: 'Budget', Icon: DollarSign, count: (plan) => `$${plan.budget.toLocaleString('en-US')}` },
+  { id: 'budget', label: 'Budget', Icon: DollarSign, count: (plan) => formatUsd(plan.budget) },
   { id: 'timeline', label: 'Timeline', Icon: Calendar, count: (plan) => plan.timeline.length },
   { id: 'vendors', label: 'Vendors', Icon: Users, count: (plan) => plan.vendors.length },
   { id: 'ideas', label: 'Ideas', Icon: Sparkles, count: (plan) => plan.creativeIdeas.length },

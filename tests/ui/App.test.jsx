@@ -129,7 +129,7 @@ describe('App', () => {
   it('cycles milestone status and filters the timeline', async () => {
     await renderApp();
     fireEvent.click(screen.getByRole('tab', { name: /Timeline/ }));
-    const [firstDone] = screen.getAllByRole('button', { name: /^Mark done/ });
+    const [firstDone] = await screen.findAllByRole('button', { name: /^Mark done/ });
     fireEvent.click(firstDone);
     expect(screen.getByText(/1 of 9 done/)).toBeTruthy();
     fireEvent.click(screen.getByRole('button', { name: 'Completed' }));
@@ -140,6 +140,7 @@ describe('App', () => {
     const { container } = await renderApp();
     for (const tab of screen.getAllByRole('tab')) {
       fireEvent.click(tab);
+      await waitFor(() => expect(screen.queryByText('Loading…')).toBeNull()); // lazy tabs
       const results = await axe.run(container, { rules: { 'color-contrast': { enabled: false } } });
       expect(results.violations.map((violation) => `${tab.textContent}: ${violation.id}: ${violation.nodes[0]?.html}`)).toEqual([]);
     }

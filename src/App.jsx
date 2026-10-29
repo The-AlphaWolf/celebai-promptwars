@@ -5,9 +5,6 @@ import Navbar from './components/Navbar';
 import EventHeader from './components/EventHeader';
 import PlannerTabs from './components/PlannerTabs';
 import BudgetPlanner from './components/BudgetPlanner';
-import TimelinePlanner from './components/TimelinePlanner';
-import VendorChecklist from './components/VendorChecklist';
-import IdeaGenerator from './components/IdeaGenerator';
 
 import { generatePlan } from './domain/planner';
 import { getPresetIntake, presetLabel } from './domain/presets';
@@ -17,7 +14,10 @@ import { celebrate } from './utils/celebrate';
 import { DEFAULT_THEME, themeName } from './config/themes';
 import './App.css';
 
-// Rarely used panels are split out of the main bundle.
+// Only the Budget tab is needed for first paint; the other tabs and rarely used panels are split out of the main bundle.
+const TimelinePlanner = lazy(() => import('./components/TimelinePlanner'));
+const VendorChecklist = lazy(() => import('./components/VendorChecklist'));
+const IdeaGenerator = lazy(() => import('./components/IdeaGenerator'));
 const ChatPanel = lazy(() => import('./components/ChatPanel'));
 const IntakeFormModal = lazy(() => import('./components/IntakeFormModal'));
 
@@ -179,7 +179,7 @@ export default function App() {
         </div>
 
         <div className="tab-view-content" role="tabpanel" id={`panel-${activeTab}`} aria-labelledby={`tab-${activeTab}`} tabIndex={0}>
-          {panels[activeTab]}
+          <Suspense fallback={<p>Loading…</p>}>{panels[activeTab]}</Suspense>
         </div>
       </main>
 
